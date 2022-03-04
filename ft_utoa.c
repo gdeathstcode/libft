@@ -26,7 +26,7 @@ void	*ft_utoa(unsigned int value, char *buffer, int radix)
 		return (buffer);
 	}
 	if (value == 0)
-		*ptr++ = 0;
+        *ptr++ = '0';
 	while (value != 0)
 	{
 		remainder = value % radix;

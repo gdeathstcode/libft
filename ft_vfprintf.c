@@ -31,7 +31,7 @@ int ft_vfprintf(FILE *stream, const char *format, va_list ap)
 		if (isConversion) {
 			format++;
 			char *str;
-			char buf[19];
+			char buf[36];
 			switch (*format) {
 				case 'c':
 					ft_putchar_fd(va_arg(ap, int), fd);
@@ -39,11 +39,17 @@ int ft_vfprintf(FILE *stream, const char *format, va_list ap)
 					break;
 				case 's':
 					str = va_arg(ap, char*);
+                    if (str == NULL) {
+                        str = buf;
+                        ft_strlcpy(buf, "(null)", ft_strlen("(null)") + 1);
+                    }
 					ft_putstr_fd(str, fd);
 					totalLenght = totalLenght + ft_strlen(str);
 					break;
 				case 'p':
-					str = ft_ultoa(va_arg(ap, unsigned long), buf, 16);
+                    ft_strlcpy(buf, "0x", ft_strlen("0x") + 1);
+					ft_ultoa(va_arg(ap, unsigned long), buf + 2, 16);
+                    str = buf;
 					ft_putstr_fd(str, fd);
 					totalLenght = totalLenght + ft_strlen(str);
 					break;
