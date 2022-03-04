@@ -1,2 +1,6 @@
 # ignore third party test: https://github.com/Tripouille/printfTester.git 
 test
+libftprintf.a
+libft/libft.a
+libft/*.o
+*.o

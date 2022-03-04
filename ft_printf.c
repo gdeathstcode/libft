@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gdeathst <gdeathst@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: gdeathst <gdeathst@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 06:09:48 by gdeathst          #+#    #+#             */
-/*   Updated: 2021/12/21 06:09:49 by gdeathst         ###   ########.fr       */
+/*   Created: 2022/03/01 08:31:20 by gdeathst          #+#    #+#             */
+/*   Updated: 2022/03/01 08:31:22 by gdeathst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_printf(const char *str, ...)
 {
-	size_t	i;
+	va_list	arg;
+	int		done;
 
-	i = 0;
-	while (s[i])
-	{
-		(*f)(i, s);
-		i++;
-	}
+	va_start(arg, str);
+	done = ft_vfprintf(stdout, str, arg);
+	va_end(arg);
+	return (done);
 }
