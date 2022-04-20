@@ -18,7 +18,7 @@ FLAGS = -Wall -Werror -Wextra
 CRTLB = ar rc
 
  
-NAME = libftprintf.a
+NAME = libft.a
 
 all: $(NAME)
 

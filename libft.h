@@ -18,6 +18,9 @@
 # include <limits.h>
 # include <unistd.h>
 
+# include "ft_printf.h"
+# include "get_next_line.h"
+
 int		ft_islower(int c);
 int		ft_isupper(int c);
 int		ft_isalpha(int c);
